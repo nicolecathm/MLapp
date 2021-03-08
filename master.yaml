@@ -9,7 +9,8 @@ paths:
 	/price/<price>/time/<time>/capacity/<capacity>/month/<month>/day/<day>/quarter/<quarter>:
 		post:
 			summary: input price
-			operationId: 
+			operationId: prediction.ticketSales
+			description: Returns prediction for ticket sales given inputs
 
 servers: 
 	- url: 'http://localhost:8080/ms'
