@@ -6,6 +6,10 @@ info:
 		A service to predict movie theater ticket sales.
 
 paths:
+	/price/<price>/time/<time>/capacity/<capacity>/month/<month>/day/<day>/quarter/<quarter>:
+		post:
+			summary: input price
+			operationId: 
 
 servers: 
 	- url: 'http://localhost:8080/ms'
