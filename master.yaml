@@ -1,0 +1,12 @@
+openapi: 3.0.0
+info:
+	version: 0.0-oas3
+	title: movieSales
+	description: >-
+		A service to predict movie theater ticket sales.
+
+paths:
+
+servers: 
+	- url: 'http://localhost:8080/ms'
+
