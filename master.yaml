@@ -115,4 +115,4 @@ paths:
 
 
 servers:
-  - url: 'http://localhost:8080/ms'
+  - url: 'http://localhost:8080/movieSalesPrediction'
