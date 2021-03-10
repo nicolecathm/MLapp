@@ -6,7 +6,7 @@ info:
                 A service to predict movie theater ticket sales.
 
 paths:
-        /price/<price>/time/<time>/capacity/<capacity>/month/<month>/day/<day>/quarter/<quarter>:
+        /tickets/price/<price>/time/<time>/capacity/<capacity>/month/<month>/day/<day>/quarter/<quarter>:
                 post:
                         summary: input price
                         operationId: prediction.ticketSales
@@ -14,6 +14,16 @@ paths:
                         responses:
                           "405":
                             description: Invalid Input
+        /totalsale/price/<price>/time/<time>/capacity/<capacity>/month/<month>/day/<day>/quarter/<quarter>:
+                post:
+                        summary: input price
+                        operationId: prediction.totalsales
+                        description: Returns prediction for total sales given inputs
+                        responses:
+                          "405":
+                            description: Invalid Input
+
+
 
 servers:
         - url: 'http://localhost:8080/ms'
