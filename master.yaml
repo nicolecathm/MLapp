@@ -63,7 +63,7 @@ paths:
         '405':
           description: Invalid Input
 
-  /totalsale/<price>/<time>/<capacity>/<month>/<daY>/<quarter>:
+  /totalsale/<price>/<time>/<capacity>/<month>/<day>/<quarter>:
       post:
         tags: 
           - Sales              
