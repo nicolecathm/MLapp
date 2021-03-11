@@ -115,8 +115,8 @@ paths:
             type: integer
 
         responses:
-	  '200':
-      	    description: Predicted Ticket Sales
+          '200':
+            description: Predicted Ticket Sales
           '405':
             description: Invalid Input
 

@@ -1,7 +1,7 @@
-from flask import Flask, render_template, request
+from flask import Flask
 from flask import jsonify
-import os
 import connexion
+from joblib import load
 
 my_model = load('predTS.pkl')
 polyTransf = load('polyTransf.pkl')
