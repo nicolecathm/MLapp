@@ -6,8 +6,8 @@ info:
       A service to predict movie theater ticket sales.
 
 paths:
-  /tickets/<price>/<time>/<capacity>/<month>/<day>/<quarter>:
-    post:
+  /tickets/{price}/{time}/{capacity}/{month}/{day}/{quarter}:
+    get:
       tags: 
         - Tickets          
       summary: input price, time, capacity, month, day, quarter to receive prediction of ticket sales
@@ -16,42 +16,42 @@ paths:
       parameters:
 
         - name: price
-          in: query
+          in: path
           description: Ticket Price            
           required: true
           schema:
             type: integer
             
         - name: time
-          in: query
+          in: path
           description: Movie Showtime, Hourly Single Digit  
           required: true
           schema:
             type: integer
             
         - name: capacity
-          in: query
+          in: path
           description: Theater Capacity            
           required: true
           schema:
             type: integer
             
         - name: month
-          in: query
+          in: path
           description: Show Month           
           required: true
           schema:
             type: integer
             
         - name: day
-          in: query
+          in: path
           description: Show Day           
           required: true
           schema:
             type: integer
             
         - name: quarter
-          in: query
+          in: path
           description: quarter of year      
           required: true
           schema:
@@ -63,8 +63,8 @@ paths:
         '405':
           description: Invalid Input
 
-  /totalsale/<price>/<time>/<capacity>/<month>/<day>/<quarter>:
-      post:
+  /totalsale/{price}/{time}/{capacity}/{month}/{day}/{quarter}:
+      get:
         tags: 
           - Sales              
         summary: input price, time, capacity, month, day, quarter to receive prediction of total sales
@@ -73,42 +73,42 @@ paths:
 
         parameters:
         - name: price
-          in: query
+          in: path
           description: Ticket Price            
           required: true
           schema:
             type: integer
             
         - name: time
-          in: query
+          in: path
           description: Movie Showtime, Hourly Single Digit  
           required: true
           schema:
             type: integer
             
         - name: capacity
-          in: query
+          in: path
           description: Theater Capacity            
           required: true
           schema:
             type: integer
             
         - name: month
-          in: query
+          in: path
           description: Show Month           
           required: true
           schema:
             type: integer
             
         - name: day
-          in: query
+          in: path
           description: Show Day           
           required: true
           schema:
             type: integer
             
         - name: quarter
-          in: query
+          in: path
           description: quarter of year      
           required: true
           schema:
