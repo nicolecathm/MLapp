@@ -3,6 +3,10 @@ from flask import jsonify
 import os
 import connexion
 
+my_model = load('predTS.pkl')
+polyTransf = load('polyTransf.pkl')
+
+
 app = connexion.App(__name__, specification_dir="./")
 
 app.add_api("master.yaml")

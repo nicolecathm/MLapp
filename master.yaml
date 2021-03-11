@@ -14,6 +14,7 @@ paths:
       operationId: prediction.ticketSales
       description: Returns prediction for ticket sales given inputs
       parameters:
+
         - name: price
           in: query
           description: Ticket Price            
@@ -57,8 +58,11 @@ paths:
             type: integer
             
       responses:
-        "405":
+        '200':
+          description: Predicted Ticket Sales
+        '405':
           description: Invalid Input
+
   /totalsale/<price>/<time>/<capacity>/<month>/<daY>/<quarter>:
       post:
         tags: 
@@ -66,6 +70,7 @@ paths:
         summary: input price, time, capacity, month, day, quarter to receive prediction of total sales
         operationId: prediction.totalsales
         description: Returns prediction for total sales given inputs
+
         parameters:
         - name: price
           in: query
@@ -108,8 +113,11 @@ paths:
           required: true
           schema:
             type: integer
+
         responses:
-          "405":
+	  '200':
+      	    description: Predicted Ticket Sales
+          '405':
             description: Invalid Input
 
 

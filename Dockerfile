@@ -27,8 +27,8 @@ RUN pip install psutil
 
 #RUN git clone https://github.com/tbalson/cpu_test.git
 
-WORKDIR cpu_test/
-COPY . /cpu_test
+WORKDIR predict_test/
+COPY . /predict_test
 
 #RUN git pull
 

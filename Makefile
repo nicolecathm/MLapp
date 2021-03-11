@@ -8,12 +8,12 @@ docker-all: docker-build docker-start
 
 docker-build:
 	@echo "building the image from docker file..."
-	docker build --no-cache --pull -t tbalson/cpu .
+	docker build --pull -t predict_demo .
 	@echo "image DONE"
 
 docker-start:
 	@echo "starting the NEW service in container..."
-	docker run  -p 8080:8080 tbalson/cpu
+	docker run  -p 8080:8080 predict_demo
 
 service:
 	@echo "creating the service..."
@@ -33,7 +33,7 @@ docker-stop:
 
 docker-remove:
 	@echo "removing the image..."
-	docker rmi -f tbalson/cpu
+	docker rmi -f predict_demo
 	@echo "image removed"
 
 docker-clean: docker-stop docker-remove
