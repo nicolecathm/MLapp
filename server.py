@@ -3,8 +3,8 @@ from flask import jsonify
 import connexion
 from joblib import load
 
-my_model = load('predTS.pkl')
-polyTransf = load('polyTransf.pkl')
+my_model = load('pyDir/predTS.pkl')
+polyTransf = load('pyDir/polyTransf.pkl')
 
 
 app = connexion.App(__name__, specification_dir="./")

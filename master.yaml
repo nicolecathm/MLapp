@@ -11,7 +11,7 @@ paths:
       tags: 
         - Tickets          
       summary: input price, time, capacity, month, day, quarter to receive prediction of ticket sales
-      operationId: prediction.ticketSales
+      operationId: pyDir.prediction.ticketSales
       description: Returns prediction for ticket sales given inputs
       parameters:
 
@@ -68,7 +68,7 @@ paths:
         tags: 
           - Sales              
         summary: input price, time, capacity, month, day, quarter to receive prediction of total sales
-        operationId: prediction.totalsales
+        operationId: pyDir.prediction.totalsales
         description: Returns prediction for total sales given inputs
 
         parameters:
@@ -123,4 +123,4 @@ paths:
 
 
 servers:
-  - url: 'http://localhost:8080/movieSalesPrediction'
+  - url: 'http://localhost:8080'
