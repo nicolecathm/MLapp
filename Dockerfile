@@ -1,5 +1,5 @@
 FROM ubuntu:18.04
-MAINTAINER Tyler Balson <tbalson@iu.edu>
+MAINTAINER Nicole Miller <ncm1@iu.edu>
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update -y
@@ -25,10 +25,8 @@ RUN python get-pip.py
 RUN pip install -U pip setuptools
 RUN pip install psutil
 
-#RUN git clone https://github.com/tbalson/cpu_test.git
-
-WORKDIR predict_test/
-COPY . /predict_test
+WORKDIR predict/
+COPY . /predict
 
 #RUN git pull
 

@@ -8,12 +8,12 @@ docker-all: docker-build docker-start
 
 docker-build:
 	@echo "building the image from docker file..."
-	docker build --pull -t predict_demo .
+	docker build --pull -t predict .
 	@echo "image DONE"
 
 docker-start:
 	@echo "starting the NEW service in container..."
-	docker run  -p 8080:8080 predict_demo
+	docker run  -p 8080:8080 predict
 
 service:
 	@echo "creating the service..."

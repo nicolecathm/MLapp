@@ -2,8 +2,8 @@ from joblib import load
 import numpy as np
 import json
 
-myModel = load('pyDir/predTS.pkl')
-polyTransf = load('pyDir/polyTransf.pkl')
+myModel = load('predTS.pkl')
+polyTransf = load('polyTransf.pkl')
 
 def ticketSales(price, time, capacity, month, day, quarter):
 	monthNum = {1:0,2:31,3:59,4:90,5:120,6:151,7:181,8:212,9:243,10:273,11:304,12:334}
@@ -22,7 +22,8 @@ def ticketSales(price, time, capacity, month, day, quarter):
 		prediction = 0
 		tSales = 0
 		
-	tSales_str = json.dumps(int(tSales))	
+	tSales_str = json.dumps(list(str(tSales)))	
+
 	return tSales_str
 
 def totalsales(price, time, capacity, month, day, quarter):
@@ -43,6 +44,6 @@ def totalsales(price, time, capacity, month, day, quarter):
 		prediction = 0
 		tSales = 0
 
-	pred_str = json.dumps(int(prediction))
+	pred_str = json.dumps(list(str(prediction)))
 
 	return pred_str
