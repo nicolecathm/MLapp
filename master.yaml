@@ -6,6 +6,19 @@ info:
       A service to predict movie theater ticket sales.
 
 paths:
+  /list:
+    get:
+      tags:
+        - List
+      summary: return a list of possible operations
+      operationId: pyDir.prediction.list
+      description: Returns list of possible operations for user and inputs
+      responses:
+        '200':
+          description: List of functionality
+        '405':
+          description: Invalid Input
+
   /tickets/{price}/{time}/{capacity}/{month}/{day}/{quarter}:
     get:
       tags: 

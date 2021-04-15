@@ -1,9 +1,21 @@
 from joblib import load
+from flask import jsonify
 import numpy as np
 import json
 
 myModel = load('pyDir/predTS.pkl')
 polyTransf = load('pyDir/polyTransf.pkl')
+
+def list():
+	list = []
+	list.append("~~~~~~FUNCTIONS:~~~~~~")
+	list.append("/tickets")
+	list.append("/totalsale")
+	list.append("~~~~~~SPECIFICATION OF INPUT:~~~~~~")
+	list.append("/tickets/{price}/{time}/{capacity}/{month}/{day}/{quarter}")
+	list.append("/totalsale/{price}/{time}/{capacity}/{month}/{day}/{quarter}")
+
+	return jsonify(list)
 
 def ticketSales(price, time, capacity, month, day, quarter):
 	monthNum = {1:0,2:31,3:59,4:90,5:120,6:151,7:181,8:212,9:243,10:273,11:304,12:334}
