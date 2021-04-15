@@ -69,11 +69,11 @@ paths:
         '405':
           description: Invalid Input
 
-  /totalsale/{price}/{time}/{capacity}/{month}/{day}/{quarter}:
+  /totalsale/{price}/{time}/{capacity}/{month}/{day}:
       get:
         tags: 
           - Sales              
-        summary: input price, time, capacity, month, day, quarter to receive prediction of total sales
+        summary: input price, time, capacity, month, day to receive prediction of total sales
         operationId: pyDir.prediction.totalsales
         description: Returns prediction for total sales given inputs
 
@@ -113,13 +113,6 @@ paths:
           schema:
             type: integer
             
-        - name: quarter
-          in: path
-          description: quarter of year      
-          required: true
-          schema:
-            type: integer
-
         responses:
           '200':
             description: Predicted Ticket Sales

@@ -42,15 +42,24 @@ def ticketSales(price, time, capacity, month, day):
 	if(prediction <= 0):
 		prediction = 0
 		tSales = 0
-		
-	tSales_str = json.dumps(int(tSales))	
-	return tSales_str
 
-def totalsales(price, time, capacity, month, day, quarter):
+	sales = ["Predicted Ticket Sales:"]		
+	sales.append(int(tSales))	
+	return sales
+
+def totalsales(price, time, capacity, month, day):
 	monthNum = {1:0,2:31,3:59,4:90,5:120,6:151,7:181,8:212,9:243,10:273,11:304,12:334}
-
 	dayIndex = (monthNum[month] + day)
 	
+	if(month<4):
+		quarter = 1
+	elif(month<7):
+		quarter = 2
+	elif(month<10):
+		quarter = 3
+	else:
+		quarter = 4
+
 	inputs = [(price, dayIndex, time, capacity, month, quarter, day)]
   
   
@@ -64,6 +73,6 @@ def totalsales(price, time, capacity, month, day, quarter):
 		prediction = 0
 		tSales = 0
 
-	pred_str = json.dumps(int(prediction))
-
-	return pred_str
+	sales = ["Predicted Total Sales:"]
+	sales.append(int(tSales))	
+	return sales
