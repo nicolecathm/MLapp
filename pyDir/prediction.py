@@ -17,10 +17,19 @@ def list():
 
 	return jsonify(list)
 
-def ticketSales(price, time, capacity, month, day, quarter):
+def ticketSales(price, time, capacity, month, day):
 	monthNum = {1:0,2:31,3:59,4:90,5:120,6:151,7:181,8:212,9:243,10:273,11:304,12:334}
 	dayIndex = (monthNum[month] + day)
 	
+	if(month<4):
+		quarter = 1
+	else if(month<7):
+		quarter = 2
+	else if(month<10):
+		quarter = 3
+	else:
+		quarter = 4
+
 	inputs = [(price, dayIndex, time, capacity, month, quarter, day)]
 
 	
@@ -35,7 +44,7 @@ def ticketSales(price, time, capacity, month, day, quarter):
 		tSales = 0
 		
 	tSales_str = json.dumps(int(tSales))	
-	return tSales_str
+	return tSales_str, jsonify(quarter)
 
 def totalsales(price, time, capacity, month, day, quarter):
 	monthNum = {1:0,2:31,3:59,4:90,5:120,6:151,7:181,8:212,9:243,10:273,11:304,12:334}

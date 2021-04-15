@@ -19,11 +19,11 @@ paths:
         '405':
           description: Invalid Input
 
-  /tickets/{price}/{time}/{capacity}/{month}/{day}/{quarter}:
+  /tickets/{price}/{time}/{capacity}/{month}/{day}:
     get:
       tags: 
         - Tickets          
-      summary: input price, time, capacity, month, day, quarter to receive prediction of ticket sales
+      summary: input price, time, capacity, month, day to receive prediction of ticket sales
       operationId: pyDir.prediction.ticketSales
       description: Returns prediction for ticket sales given inputs
       parameters:
@@ -59,13 +59,6 @@ paths:
         - name: day
           in: path
           description: Show Day           
-          required: true
-          schema:
-            type: integer
-            
-        - name: quarter
-          in: path
-          description: quarter of year      
           required: true
           schema:
             type: integer
