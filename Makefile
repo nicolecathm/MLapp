@@ -6,14 +6,21 @@ all: start
 docker-all: docker-build docker-start
 	@echo "DONE"
 
+docker-alli: docker-build docker-inter
+	@echo "Done INTER"
+
 docker-build:
 	@echo "building the image from docker file..."
-	docker build --pull -t predict .
+	docker build --pull -t predict_demo .
 	@echo "image DONE"
 
 docker-start:
 	@echo "starting the NEW service in container..."
-	docker run  -p 8080:8080 predict
+	docker run  -p 8080:8080 predict_demo
+
+docker-inter:
+	@echo "starting the NEW service in container interactively..."
+	docker run  -p 8080:8080 -v $$(pwd):/predict_test/ -it predict_demo
 
 service:
 	@echo "creating the service..."
