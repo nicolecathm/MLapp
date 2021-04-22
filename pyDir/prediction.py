@@ -11,9 +11,10 @@ def list():
 	list.append("~~~~~~FUNCTIONS:~~~~~~")
 	list.append("/tickets")
 	list.append("/totalsale")
+	list.append("/list")
 	list.append("~~~~~~SPECIFICATION OF INPUT:~~~~~~")
-	list.append("/tickets/{price}/{time}/{capacity}/{month}/{day}/{quarter}")
-	list.append("/totalsale/{price}/{time}/{capacity}/{month}/{day}/{quarter}")
+	list.append("/tickets/{price}/{time}/{capacity}/{month}/{day}")
+	list.append("/totalsale/{price}/{time}/{capacity}/{month}/{day}")
 
 	return jsonify(list)
 
@@ -38,6 +39,7 @@ def ticketSales(price, time, capacity, month, day):
 	tSales = prediction / price
 	if(tSales > capacity):
 		prediction = capacity * price
+		tSales = capacity
 		
 	if(prediction <= 0):
 		prediction = 0
@@ -68,6 +70,7 @@ def totalsales(price, time, capacity, month, day):
 	tSales = prediction / price
 	if(tSales > capacity):
 		prediction = capacity*price
+		tSales = capacity
 		
 	if(prediction <= 0):
 		prediction = 0
