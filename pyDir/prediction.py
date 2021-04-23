@@ -3,8 +3,7 @@ from flask import jsonify
 import numpy as np
 import json
 
-myModel = load('pyDir/predTS.pkl')
-polyTransf = load('pyDir/polyTransf.pkl')
+myModel = load('pyDir/bestMod.pkl')
 
 def list():
 	list = []
@@ -20,6 +19,16 @@ def list():
 
 def ticketSales(price, time, capacity, month, day):
 	monthNum = {1:0,2:31,3:59,4:90,5:120,6:151,7:181,8:212,9:243,10:273,11:304,12:334}
+	
+	if (price < 0) or (time < 0) or (capacity < 0):
+		return(['Negative values not within possible range of input'])
+
+	if month not in monthNum: # ensure within range of months
+		return(['Month Specified not within 1-12'])
+
+	if day not in range(1,32):
+		return(['Day not within in range 1-31'])
+
 	dayIndex = (monthNum[month] + day)
 	
 	if(month<4):
@@ -34,7 +43,7 @@ def ticketSales(price, time, capacity, month, day):
 	inputs = [(price, dayIndex, time, capacity, month, quarter, day)]
 
 	
-	prediction = myModel.predict(polyTransf.transform(inputs)) # predicts total sales
+	prediction = myModel.predict(inputs) # predicts total sales
 
 	tSales = prediction / price
 	if(tSales > capacity):
@@ -51,6 +60,16 @@ def ticketSales(price, time, capacity, month, day):
 
 def totalsales(price, time, capacity, month, day):
 	monthNum = {1:0,2:31,3:59,4:90,5:120,6:151,7:181,8:212,9:243,10:273,11:304,12:334}
+
+	if (price < 0) or (time < 0) or (capacity < 0):
+		return(['Negative values not within possible range of input'])
+
+	if month not in monthNum: # ensure within range of months
+		return(['Month Specified not within 1-12'])
+
+	if day not in range(1,32): # ensure day 1-31, doesnt yet account for change in # of day
+		return(['Day not within in range 1-31'])
+
 	dayIndex = (monthNum[month] + day)
 	
 	if(month<4):
@@ -65,7 +84,7 @@ def totalsales(price, time, capacity, month, day):
 	inputs = [(price, dayIndex, time, capacity, month, quarter, day)]
   
   
-	prediction = myModel.predict(polyTransf.transform(inputs)) # prediction holds total sales
+	prediction = myModel.predict(inputs) # prediction holds total sales
 
 	tSales = prediction / price
 	if(tSales > capacity):
@@ -77,5 +96,5 @@ def totalsales(price, time, capacity, month, day):
 		tSales = 0
 
 	sales = ["Predicted Total Sales:"]
-	sales.append(int(tSales))	
+	sales.append(int(prediction))	
 	return sales
