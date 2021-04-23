@@ -13,7 +13,7 @@ app.add_api("master.yaml")
 
 @app.route("/")
 def home():
-	msg = {"msg": "It's really working!"}
+	msg = {"Server working": "/list for functionality"}
 	return jsonify(msg)
 
 if __name__ == "__main__":
